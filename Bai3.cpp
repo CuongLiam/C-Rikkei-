@@ -3,7 +3,7 @@ int main(){
 	double amount, money;
 	int choice;
 	
-    printf("==============CHUONG TRINH CHUYEN DOI TIEN TE=============\n");
+	printf("==============CHUONG TRINH CHUYEN DOI TIEN TE=============\n");
     printf("1. USD to VND\n");
     printf("2. EUR to VND\n");
     printf("3. GBP to VND\n");
