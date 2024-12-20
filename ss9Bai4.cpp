@@ -75,6 +75,7 @@ int main(void){
 				printf("Nhap gia tri ban muon sua thanh (hien tai la %d)",arr[editPosition]);
 				scanf("%d",&editValue);
 				
+				temp = arr[editPosition];
 				arr[editPosition] = editValue;
 				printf("Succesfully edited!! (%d to %d)",temp,arr[editPosition]);
 				
