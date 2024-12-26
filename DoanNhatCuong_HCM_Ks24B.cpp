@@ -4,6 +4,7 @@ int size = 0;
 
 int main(){
 	int arr[MaxSize];
+	int n;
 	while(1){
 		printf("\n   Menu\n");
 		printf("==============\n");
@@ -23,8 +24,7 @@ int main(){
 		scanf("%d",&choice);
 		
 		switch(choice){
-			case 1:
-				int n;
+			case 1:{
 				printf("Nhap so luong phan tu cho mang(max100): ");
 				scanf("%d",&n);
 				if(n<=0 || n>MaxSize){
@@ -38,7 +38,7 @@ int main(){
 				size = n;
                 printf("Ban vua nhap thanh cong cho %d phan tu \n",size);
                 break;
-				
+			}
 			case 2:
 				if(size == 0){
 					printf("array cua ban rong vui long input phan tu vao array\n");
@@ -49,45 +49,54 @@ int main(){
 					printf("arr[%d] = %d , ",i,arr[i]);
 				}
 				break;
-			case 3:
-//				int dem = 0;
-//
-//			    for(int i = 0; i < n; i++){
-//			        int tong = 0;
-//	
-//			        for(int j = 1; j <= arr[i] / 2; j++){
-//			            if(arr[i] % j == 0){
-//			                tong += j;
-//			            }
-//			        }
-//	
-//			        if(tong == arr[i] && arr[i] > 1){
-//			            dem++;
-//			        }
-//			    }
-//  		  		printf("so luong so hoan hao: %d\n", dem);
+			case 3:{
+				int count = 0;
+			    for(int i = 0; i < size; i++){
+			        int sum = 1;
+			        for (int j = 2; j * j <= arr[i]; j++){
+					    if (arr[i] % j == 0) {
+					        if (j == arr[i] / j)
+					            sum += j; 
+					        else
+					            sum += j + arr[i] / j;
+					    }
+					}
+			        if(sum == arr[i] && arr[i] > 1){
+			            count++;
+			        }
+			    }
+  		  		printf("so luong so hoan hao: %d\n", count);
 				break;
-			case 4:
-//			    int max1 = INT_MIN; 
-//			    for (int i = 0; i < n; i++) {
-//			        if (arr[i] > max1) {
-//			            max1 = arr[i];
-//			        }
-//			    }
-//			
-//			    int max2 = INT_MIN; 
-//			    for (int i = 0; i < n; i++) {
-//			        if (arr[i] > max2 && arr[i] < max1) {
-//			            max2 = arr[i];
-//			        }
-//			    }
-//			
-//			    if (max2 == INT_MIN) {
-//			        printf("k co gia tri lon thu 2.\n");
-//			    } else {
-//			        printf("gia tri lon thu 2 la : %d\n", max2);
+			}
+			case 4: 
+				{					
+			    if (size < 2) {
+		        printf("Mang co it hon 2 phan tu khong the tim gia tri lon thu 2\n");
+		        break;
+		    	}
+		
+			    int max = arr[0]; 
+			    int secondMax = -1; 
+			
+			    for(int i = 1; i < size; i++){
+			        if (arr[i] > max) {
+			            secondMax = max; 
+			            max = arr[i]; 
+			        }else if(arr[i]>secondMax && arr[i]<max){
+			            secondMax = arr[i]; 
+			        }
+			    }
+			
+			    if (secondMax == -1) {
+			        printf("Khong co gia tri lon thu 2 trong mang\n");
+			    } else {
+			        printf("Gia tri lon thu 2 trong mang la: %d\n", secondMax);
+			    }
+
 				break;
+				}
 			case 5:
+				{
 				int addValue,position;
 				printf("Nhap vi tri phan tu ban muon them: (0-%d) ",size-1);
 				scanf("%d",&position);
@@ -106,7 +115,10 @@ int main(){
 				printf("\nThem thanh cong\n");
 				
 				break;
+				}
 			case 6:
+				{
+				
 				int removePosition;
 				printf("Nhap vi tri phan tu ban muon xoa: (0-%d)",size-1);
 				scanf("%d",&removePosition);
@@ -124,9 +136,11 @@ int main(){
 				printf("Xoa thanh cong!! (%d)",removePosition);
 				
 				break;
-				
+				}
 			case 7:
-				for(int i=1 ; i<n; i++){
+				{
+				
+				for(int i=1 ; i<size; i++){
 					int key = arr[i];
 					int j = i-1;
 					for(; j>=0 && key > arr[j] ; j--){
@@ -137,9 +151,10 @@ int main(){
 				printf("Sorted thanh cong!");
 				
 				
-				
+				}
 				break;	
 			case 8:
+				{
 				for(int i = 0; i< size-1; i++){
 					for(int j = 0; j< size-1-i; j++){
 						if(arr[j] > arr[j+1]){
@@ -175,15 +190,21 @@ int main(){
 						printf("\nko tim thay gia tri %d trong mang",find);
 				}
 				break;
+				}
 			case 9:
+				
 				break;
 			case 10:
-				
-				
-				
+				{
+					for(int i=0; i<=size/2; i++){
+						int temp = arr[i];
+						arr[i] = arr[size - 1-i];
+						arr[size - 1-i] = temp;
+					}
+					printf("successfully dao nguoc");
+					
+				}
 				break;		
-				
-				
 			default:
                 printf("Lua chon ko hop le, vui long nhap lai\n");
                 break;
