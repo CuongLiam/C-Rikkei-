@@ -6,8 +6,9 @@ int main(void){
 	
 	sumIs(&a, &b, &sum);
 	
+	printf("Sum la %d", sum);
 	return 0;
 };
 int sumIs(int *a, int *b, int *sum){
-	printf("sum la = %d", *sum = *a + *b);
+	*sum = *a + *b;
 };
