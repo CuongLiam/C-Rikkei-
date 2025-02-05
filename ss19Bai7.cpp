@@ -41,19 +41,20 @@ int main(void){
 	return 0;
 }
 
+//remember these
 void removeStudent(int byebyeID, struct Student S[], int *n){
 	int flag=0;
 	
 	for(int i=0; i<*n; i++){
 		if(S[i].id == byebyeID){
-			flag = 1;
+			flag = i;
 			break;
 		}
 	}
 	
-	if(flag){
-		for(int i= *n-1; i>=byebyeID; i--){
-			S[i-1].id = S[i].id;
+	if(flag!=0){
+		for(int i= flag; i<=*n-1; i++){
+			S[i] = S[i+1];
 		}
 		(*n)--;
 		printf("Sinh vien co ID = %d da duoc xoa.\n", byebyeID);
@@ -69,6 +70,5 @@ void removeStudent(int byebyeID, struct Student S[], int *n){
        printf("\nSDT: %s", S[i].phone);
     }
 	
-	
-	
+		
 };
