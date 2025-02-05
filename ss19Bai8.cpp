@@ -18,11 +18,11 @@ int main(void){
 	struct Student S[max];
 	int n = 5;
 	
-	S[0] = (struct Student){1, "Amessy jr", 20, "0123456789"};
+	S[0] = (struct Student){1, "Bmessy jr", 20, "0123456789"};
     S[1] = (struct Student){2, "Nrandom guy 2", 22, "0987654321"};
     S[2] = (struct Student){3, "Zhi there", 21, "0912345678"};
     S[3] = (struct Student){4, "Chehe", 19, "0945678123"};
-    S[4] = (struct Student){5, "Yok", 23, "0934567890"};
+    S[4] = (struct Student){5, "Aok", 23, "0934567890"};
 	
 	printf("Danh sach sinh vien luc dau:\n");
 	for(int i = 0; i < n; i++){
@@ -49,13 +49,14 @@ int main(void){
 }
 
 void arrangeStu(struct Student S[], int *n){
-	char temp[25];
+	struct Student temp;
 	for(int i=0 ; i<*n ; i++){
 		for(int j= 0; j<*n-1-i; j++){
 			if(strcmp(S[j].name, S[j+1].name) > 0){
-				strcpy(temp, S[j].name);
-				strcpy(S[j].name, S[j+1].name);
-				strcpy(S[j+1].name, temp);
+				
+				temp = S[j];
+				S[j] = S[j+1];
+				S[j+1] = temp;
 			}
 		}
 	}
