@@ -5,19 +5,11 @@
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
-struct Student{
-//	char classroomID[6];
-	int id;
-	char name[25];
-//	int sex;
-	int age;
-	char phoneNumber[12];
-};
 
 int main(int argc, char *argv[]) {	
 	system("color B");
 	
-//	struct Student S[max];
+	struct Student S[max];
 	int n=5;
 	S[0] = (struct Student){1, "Bmessy jr", 20, "0123456789"};
     S[1] = (struct Student){2, "Nrandom guy 2", 22, "0987654321"};
@@ -30,10 +22,11 @@ int main(int argc, char *argv[]) {
 		printf("%10senter your choice: ", " ");
 		
 		int choice = inputChoice();
+		getchar();
 		
 		switch(choice){
 			case 1:{
-				addStu(S, &n);
+				addStudent(S, &n);
 				break;
 			}
 			case 2:{

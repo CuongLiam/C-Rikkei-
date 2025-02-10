@@ -50,7 +50,7 @@ void EndProgram(){
 };
 
 void showStudentList(struct Student S[], int *n){
-	printf("============DANH SACH HOC SINH HIEN GIO=========\n");
+	printf("\n============DANH SACH HOC SINH HIEN GIO=========\n");
 	printf("+--+-------------------------+---+--------------\n");
 	printf("|%-2s|%-25s|%-3s|%-12s|\n","ID", "Ten", "Tuoi", "Sdt");
 	printf("+--+-------------------------+---+--------------\n");
@@ -76,5 +76,5 @@ void addStudent(struct Student S[], int *n){
 	
 	(*n)++;
 	
-	printf("\nSuccessfully added!");
+	printf("\nSuccessfully added!\n");
 };
