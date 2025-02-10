@@ -1,6 +1,6 @@
 //import thu vien, khai bao cac struct
-#ifndef DATATYPE_H   // If DATATYPE_H is not defined...
-#define DATATYPE_H   // ...define it now
+#ifndef datatype.h   // If DATATYPE_H is not defined...
+#define datatype.h   // ...define it now
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -15,4 +15,4 @@ struct Student{
 	int age;
 	char phoneNumber[12];
 };
-#endif // DATATYPE_H
+#endif
